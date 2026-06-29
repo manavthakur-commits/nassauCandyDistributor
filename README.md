@@ -160,21 +160,6 @@ numpy>=1.24.0
 plotly>=5.18.0
 ```
 
----
-
-## 🔮 Roadmap
-
-- [ ] Fix filter propagation to pre-computed aggregations in Insights section
-- [ ] Add empty-state guard when filters return no data
-- [ ] Export filtered data as CSV from each section
-- [ ] Year-over-year comparison toggle in trend charts
-- [ ] Fulfillment time analysis using Ship Date − Order Date
-- [ ] Dynamic repricing simulator with adjustable margin bump slider
-- [ ] Seasonality heatmap (month × year margin %)
-- [ ] AI-generated narrative insights via LLM integration
-
----
-
 ## 👤 Author
 
 Built for **Nassau Candy Distributor** internal analytics.
