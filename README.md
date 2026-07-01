@@ -1,46 +1,129 @@
 # 📊 Nassau Candy Distributor — Profitability & Margin Performance Dashboard
+End-to-End Business Intelligence Dashboard for Analyzing Product Profitability, Division Performance, and Customer Retention Opportunities.
 
-A comprehensive, interactive analytics dashboard built with **Streamlit** and **Plotly** to analyze profitability, margin performance, customer segmentation, and strategic opportunities across Nassau Candy's product portfolio and distribution divisions.
+🚀 **[Launch Live Dashboard →](#)**
 
 ---
 
-## 🚀 Features
+## 🎯 Problem Statement
 
-### 📈 Product Profitability
-- Top 15 products ranked by gross profit and gross margin %
-- Profit contribution pie chart (Top 10 products vs. rest)
+Candy distributors operate on razor-thin margins. Without clear visibility into which products, divisions, and customers are driving — or destroying — profitability, leadership teams make pricing and portfolio decisions based on revenue alone.
+
+This project delivers an **interactive, filter-driven analytics dashboard** built on real distributor data that exposes the true profit story behind Nassau Candy's operations — from product-level margin diagnostics to customer-level segmentation and actionable repricing recommendations.
+
+---
+
+## 🚀 Key Highlights
+
+✅ Built a complete analytics pipeline from raw order data to business insights
+
+✅ Engineered 5+ business-driven KPIs beyond raw sales figures
+
+✅ Developed 6 fully interactive dashboard sections covering all profitability dimensions
+
+✅ Implemented Pareto concentration analysis to identify profit dependency risk
+
+✅ Supports real-time filtering across date, division, margin threshold, product, and customer
+
+✅ Generates data-driven repricing and discontinuation recommendations with quantified upside
+
+---
+
+## 🏆 Business Impact
+
+- Identifies which products drive the majority of gross profit (Pareto 80/20 analysis)
+- Flags low-margin / high-volume products as repricing candidates with estimated revenue upside
+- Reveals underperforming products and customers for portfolio rationalization
+- Enables division-level performance benchmarking across the organization
+- Surfaces cost anomalies and IQR-based outliers for cost control interventions
+- Supports data-driven pricing, inventory, and customer retention decisions
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Tools |
+|---|---|
+| Language | Python |
+| Web App | Streamlit |
+| Data Analysis | Pandas, NumPy |
+| Visualization | Plotly Express, Plotly Graph Objects |
+| Statistical Analysis | NumPy (IQR, percentiles, cumulative distributions) |
+
+---
+
+## 🏗️ System Architecture
+
+```
+Raw Order Data (CSV)
+        │
+        ▼
+Data Cleaning & Validation
+(date parsing, zero-sales removal, type coercion)
+        │
+        ▼
+KPI Engineering
+(Gross Margin %, Profit per Unit, Cost-to-Sales Ratio,
+ YearMonth, Quarter, Year)
+        │
+        ▼
+Pre-Computed Aggregations
+(product_agg, customer_agg, monthly_trend)
+        │
+        ▼
+Sidebar Filter Application
+(Date, Division, Margin Threshold, Product, Customer)
+        │
+        ▼
+Six-Section Interactive Dashboard
+        │
+        ├── Product Profitability
+        ├── Division Performance
+        ├── Cost-Margin Diagnostics
+        ├── Profit Concentration (Pareto)
+        ├── Insights & Recommendations
+        └── Customer Profitability
+```
+
+---
+
+## 📊 Dashboard Sections
+
+### 1. 📈 Product Profitability
+- Top 15 products by gross profit and gross margin %
+- Profit contribution pie chart (Top 10 vs. rest)
 - Monthly sales & profit trend lines with margin % overlay
 - Order volume and units dual-axis chart
-- Detailed product metrics table (expandable)
+- Full product metrics table (expandable)
 
-### 🏭 Division Performance
+### 2. 🏭 Division Performance
 - Revenue vs. profit grouped bar chart by division
-- Margin distribution box plots per division
-- Division-level performance metrics summary table
+- Gross margin % distribution box plots per division
+- Division-level summary metrics table
 - Regional performance breakdown (expandable)
 
-### ⚠️ Cost-Margin Diagnostics
+### 3. ⚠️ Cost-Margin Diagnostics
 - Cost vs. Sales scatter plot with breakeven line
-- Margin risk flags: negative, low, moderate, and healthy order counts
+- Risk flag counts: negative, low, moderate, and healthy margins
 - IQR-based anomaly detection on profit-per-unit
 - Cost efficiency ratio by division
-- Products needing review (low margin / high cost) — expandable
+- Products flagged for review — low margin / high cost (expandable)
 
-### 🎯 Profit Concentration (Pareto Analysis)
+### 4. 🎯 Profit Concentration (Pareto Analysis)
 - Pareto chart: products driving 80% of profit and revenue
-- Concentration risk level scoring (Low / Moderate / High)
+- Concentration risk scoring: Low / Moderate / High
 - Revenue and profit distribution pie charts by division
-- Detailed concentration metrics table (expandable)
+- Detailed concentration metrics with cumulative contribution table (expandable)
 
-### 💡 Insights & Recommendations
+### 5. 💡 Insights & Recommendations
 - Top performers by profit, margin, volume, and revenue
 - Profit-volume quadrant analysis (Stars, Cash Cows, Volume Drivers, Underperformers)
-- Repricing opportunities with estimated 2% and 5% gain scenarios
-- Discontinuation candidates with cost trade-off analysis
+- Repricing opportunity table with estimated 2% and 5% revenue upside
+- Discontinuation candidates with cost savings estimates
 - Division-level strategic recommendations
 - Consolidated action items summary
 
-### 👤 Customer Profitability
+### 6. 👤 Customer Profitability
 - Top 20 customers by gross profit (horizontal bar chart)
 - Customer profit tier segmentation (Top / Mid / Low / Bottom)
 - Revenue vs. profit scatter for top 200 customers
@@ -50,18 +133,33 @@ A comprehensive, interactive analytics dashboard built with **Streamlit** and **
 
 ---
 
-## 🛠️ Tech Stack
+## 📐 Engineered KPIs
 
-| Layer | Technology |
-|---|---|
-| Frontend / App | [Streamlit](https://streamlit.io/) |
-| Visualizations | [Plotly Express](https://plotly.com/python/plotly-express/) & [Plotly Graph Objects](https://plotly.com/python/) |
-| Data Processing | [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/) |
-| Language | Python 3.8+ |
+| Metric | Formula | Purpose |
+|---|---|---|
+| Gross Margin % | `(Gross Profit / Sales) × 100` | Core profitability signal |
+| Profit per Unit | `Gross Profit / Units` | Unit economics efficiency |
+| Cost to Sales Ratio | `Cost / Sales` | Cost pressure indicator |
+| Concentration Ratio | `(# products for 80% profit / total) × 100` | Portfolio dependency risk |
+| IQR Anomaly Score | `Profit/Unit < Q1 − 1.5×IQR` | Cost outlier detection |
 
 ---
 
-## 📁 Project Structure
+## 🎛️ Dashboard Filters
+
+All filters are in the left sidebar and apply globally across every section:
+
+| Filter | Description |
+|---|---|
+| **Date Range** | Restrict data to a specific order date window |
+| **Division** | Multi-select to include one or more divisions |
+| **Margin Threshold (%)** | Exclude orders below a minimum gross margin % |
+| **Product Search** | Case-insensitive text filter on product name |
+| **Customer Search** | Filter by Customer ID |
+
+---
+
+## 📂 Project Structure
 
 ```
 nassau-candy-dashboard/
@@ -73,32 +171,29 @@ nassau-candy-dashboard/
 
 ---
 
-## ⚙️ Setup & Installation
-
-### 1. Clone the repository
+## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-org/nassau-candy-dashboard.git
+git clone https://github.com/yourusername/nassau-candy-dashboard.git
 cd nassau-candy-dashboard
-```
-
-### 2. Create a virtual environment (recommended)
-
-```bash
-python -m venv venv
-source venv/bin/activate        # macOS/Linux
-venv\Scripts\activate           # Windows
-```
-
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-### 4. Add the data file
+---
 
-Place the `Nassau Candy Distributor.csv` file in the project root directory. The file must include the following columns:
+## ▶️ Run
+
+```bash
+streamlit run app.py
+```
+
+The dashboard launches at `http://localhost:8501`.
+
+---
+
+## 📋 Data Requirements
+
+Place `Nassau Candy Distributor.csv` in the project root. The file must include:
 
 | Column | Type | Description |
 |---|---|---|
@@ -112,59 +207,46 @@ Place the `Nassau Candy Distributor.csv` file in the project root directory. The
 | `Sales` | Float | Total revenue for the order line |
 | `Cost` | Float | Total cost for the order line |
 | `Gross Profit` | Float | Sales minus Cost |
-| `Units` | Integer | Number of units sold |
-
-### 5. Run the dashboard
-
-```bash
-python -m streamlit run app.py
-```
-
-The dashboard will open automatically at `http://localhost:8501`.
+| `Units` | Integer | Units sold |
 
 ---
 
-## 🎛️ Dashboard Filters
+## 💡 Skills Demonstrated
 
-All filters are located in the left sidebar and apply globally across every section:
-
-| Filter | Description |
-|---|---|
-| **Date Range** | Narrows data to orders placed within the selected period |
-| **Division** | Multi-select to include one or more specific divisions |
-| **Margin Threshold** | Excludes orders with gross margin % below the selected value |
-| **Product Search** | Case-insensitive text filter on product name |
-| **Customer Search** | Filter rows by Customer ID |
-
----
-
-## 📊 Key Metrics Explained
-
-| Metric | Formula |
-|---|---|
-| Gross Margin % | `(Gross Profit / Sales) × 100` |
-| Profit per Unit | `Gross Profit / Units` |
-| Cost to Sales Ratio | `Cost / Sales` |
-| Concentration Ratio | `(# products for 80% profit / total products) × 100` |
+- Business Intelligence & Analytics
+- KPI Engineering & Metric Design
+- Pareto & Concentration Analysis
+- Customer Segmentation
+- Cost Anomaly Detection
+- Data Visualization (Plotly)
+- Interactive Dashboard Development (Streamlit)
+- Strategic Business Recommendations
 
 ---
 
-## 🗂️ Requirements
+## 📌 Resume-Worthy Achievements
 
-Create a `requirements.txt` with the following:
+Developed an end-to-end business intelligence dashboard for a real distributor dataset, engineering custom profitability KPIs and surfacing actionable margin insights across 6 analytics dimensions.
 
-```
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-plotly>=5.18.0
-```
+Built a data-driven recommendation engine identifying repricing opportunities, discontinuation candidates, and customer segments — with quantified revenue and cost upside estimates.
 
-## 👤 Author
-
-Built for **Nassau Candy Distributor** internal analytics.
-For questions or contributions, open an issue or submit a pull request.
+Designed a Pareto concentration analysis system that scores portfolio dependency risk and flags products driving 80% of company profit for targeted investment decisions.
 
 ---
 
-*Dashboard version: Enhanced Edition — Last updated dynamically at runtime.*
+## 🔮 Future Enhancements
+
+- [ ] Fix filter propagation to pre-computed aggregations in Insights section
+- [ ] Add empty-state guard when filters return no data
+- [ ] CSV export button on each data table
+- [ ] Year-over-year comparison toggle in trend charts
+- [ ] Fulfillment time analysis using Ship Date − Order Date gap
+- [ ] Dynamic repricing simulator with adjustable margin slider
+- [ ] Seasonality heatmap (month × year margin %)
+- [ ] AI-generated narrative insights via LLM integration
+- [ ] Docker deployment
+- [ ] Cloud hosting (AWS / GCP)
+
+---
+
+*Nassau Candy Distributor | Profitability & Margin Performance Dashboard — Enhanced Edition*
