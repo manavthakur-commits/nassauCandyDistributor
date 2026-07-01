@@ -190,21 +190,3 @@ streamlit run app.py
 The dashboard launches at `http://localhost:8501`.
 
 ---
-
-## 📋 Data Requirements
-
-Place `Nassau Candy Distributor.csv` in the project root. The file must include:
-
-| Column | Type | Description |
-|---|---|---|
-| `Order Date` | Date (`DD-MM-YYYY`) | Date the order was placed |
-| `Ship Date` | Date (`DD-MM-YYYY`) | Date the order was shipped |
-| `Order ID` | String | Unique order identifier |
-| `Customer ID` | String | Unique customer identifier |
-| `Product Name` | String | Name of the product |
-| `Division` | String | Business division |
-| `Region` | String | Geographic region |
-| `Sales` | Float | Total revenue for the order line |
-| `Cost` | Float | Total cost for the order line |
-| `Gross Profit` | Float | Sales minus Cost |
-| `Units` | Integer | Units sold |
