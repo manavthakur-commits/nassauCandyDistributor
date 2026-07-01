@@ -1,10 +1,7 @@
 # 📊 Nassau Candy Distributor — Profitability & Margin Performance Dashboard
 End-to-End Business Intelligence Dashboard for Analyzing Product Profitability, Division Performance, and Customer Retention Opportunities.
-
-🚀 **[Launch Live Dashboard →](#)**
-
----
-
+ 
+🚀 **[Launch Live Dashboard →](https://gbbuvuirzzehhmn5mb3bmv.streamlit.app/)**
 ## 🎯 Problem Statement
 
 Candy distributors operate on razor-thin margins. Without clear visibility into which products, divisions, and customers are driving — or destroying — profitability, leadership teams make pricing and portfolio decisions based on revenue alone.
